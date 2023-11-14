@@ -1,6 +1,6 @@
 function complex_bans() {
   /**
-   * Complex Ban Setter V1.5
+   * Complex Ban Adder V1.5
    * ojoman 2023
    * 
    * Google Apps Script function to automatically place complex bans onto a tierlist
