@@ -2,14 +2,14 @@
 # ojoman 2023
 
 Google Apps Script function to automatically place complex bans onto a tierlist
-# WARNING
+## Warning
 This script will clear **ALL** notes on your tierlist sheet.
 This can be set to clear a range instead of the whole sheet but you'll need to do that yourself
 
-# DISCLAIMER
+## Disclaimer
 This script will not place multiple bans on the same pokemon (for example, greninja having different tiers for ash, protean and torrent). You will need the pokemon to have different names
 
-# Setup
+## Setup
 Change the four below variables to match your own draft document
 On your document, click "Extensions -> Apps Script"
 Paste this function into the app script (replacing the default if present)
