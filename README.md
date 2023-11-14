@@ -10,7 +10,7 @@ This can be set to clear a range instead of the whole sheet but you'll need to d
 This script will not place multiple bans on the same pokemon (for example, greninja having different tiers for ash, protean and torrent). You will need the pokemon to have different names
 
 ## Setup
-1. Change the four below variables to match your own draft document
+1. Change the four variables to match your own draft document
 2. On your document, click "Extensions -> Apps Script"
 3. Paste this function into the app script (replacing the default if present)
 4. Return to your document, click "Extensions -> Macros -> Import Macro"
