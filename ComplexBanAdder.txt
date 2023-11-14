@@ -1,6 +1,6 @@
 function complex_bans() {
   /**
-   * Complex Ban Adder V1.5
+   * Complex Ban Adder V1.6
    * ojoman 2023
    * 
    * Google Apps Script function to automatically place complex bans onto a tierlist
@@ -40,8 +40,8 @@ function complex_bans() {
 
   for(var i = 0; i<pokemon.length;i++){
     if (bans[i] != "") {                              //If there is a ban:
-      var tf = tiers.createTextFinder(pokemon[i]);    //Find the pokemon name that lines up with the ban,
-      var pc = tf.findNext()
+      var tf = tiers.createTextFinder("\^" + pokemon[i] + "\$").useRegularExpression(true);    
+      var pc = tf.findNext()                          //Find the pokemon name that lines up with the ban,
       if (pc != null) {                               //If found:
         pc.setNote(bans[i])                           //Set note to complex ban
       }
