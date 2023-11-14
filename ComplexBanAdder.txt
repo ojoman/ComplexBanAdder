@@ -1,0 +1,53 @@
+function complex_bans() {
+  /**
+   * Complex Ban Setter V1.5
+   * ojoman 2023
+   * 
+   * Google Apps Script function to automatically place complex bans onto a tierlist
+   * WARNING: This script will clear **ALL** notes on your tierlist sheet.
+   *          This can be set to clear a range instead of the whole sheet but you'll need to do that yourself
+   * 
+   * DISCLAIMER: This script will not place multiple bans on the same pokemon (for example, greninja having
+   *             different tiers for ash, protean and torrent). You will need the pokemon to have different names
+   * 
+   * Setup:
+   * Change the four below variables to match your own draft document
+   * On your document, click "Extensions -> Apps Script"
+   * Paste this function into the app script (replacing the default if present)
+   * Return to your document, click "Extensions -> Macros -> Import Macro"
+   * Click "Add Function" and close the dialog
+   * Click "Extensions -> Macros -> complex_bans"
+   * Click "Ok" to the "Authorisation Required" dialog
+   * Sign in and click "advanced" on the security dialog
+   * Click "Go to Untitled project (unsafe)" 
+   * Click "Allow"
+   * Run the script again ("Extensions -> Macros -> complex_bans")
+   */
+  var pokedexSheetName = 'Pokedex'    //Data sheet containing pokemon, their tier and complex bans
+  var tierlistSheetName = 'Tierlist'  //Tierlist page showing all pokemon and their prices
+  var pokemonNameRange = 'B2:B'       //Range containing all pokemon names
+  var complexBanNameRange = 'E2:E'    //Range containing lined-up complex bans for pokemon that have them
+
+  var dex = SpreadsheetApp.getActive().getSheetByName(pokedexSheetName) 
+  var tiers = SpreadsheetApp.getActive().getSheetByName(tierlistSheetName)
+
+  tiers.clearNotes() //  ###  CLEARS ALL NOTES  ###
+
+  var pkRanges = dex.getRange(pokemonNameRange) 
+  var pokemon = pkRanges.getValues()  //Gets range of pokemon names
+  var banRanges = dex.getRange(complexBanNameRange)
+  var bans = banRanges.getValues()    //Gets range of complex bans
+
+  for(var i = 0; i<pokemon.length;i++){
+    if (bans[i] != "") {                              //If there is a ban:
+      var tf = tiers.createTextFinder(pokemon[i]);    //Find the pokemon name that lines up with the ban,
+      var pc = tf.findNext()
+      if (pc != null) {                               //If found:
+        pc.setNote(bans[i])                           //Set note to complex ban
+      }
+    }
+    if (pokemon[i] == "") {                           //If no more pokemon, stop
+      break;
+    }
+  }
+}
