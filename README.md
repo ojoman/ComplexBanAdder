@@ -1,17 +1,15 @@
-# ComplexBanAdder
-App script to add complex bans to draft documents (as text because i'm lazy)
-
-Complex Ban Setter V1.5
-ojoman 2023
+# Complex Ban Adder V1.5
+# ojoman 2023
 
 Google Apps Script function to automatically place complex bans onto a tierlist
-WARNING: This script will clear **ALL** notes on your tierlist sheet.
-         This can be set to clear a range instead of the whole sheet but you'll need to do that yourself
+# WARNING
+This script will clear **ALL** notes on your tierlist sheet.
+This can be set to clear a range instead of the whole sheet but you'll need to do that yourself
 
-DISCLAIMER: This script will not place multiple bans on the same pokemon (for example, greninja having
-            different tiers for ash, protean and torrent). You will need the pokemon to have different names
+# DISCLAIMER
+This script will not place multiple bans on the same pokemon (for example, greninja having different tiers for ash, protean and torrent). You will need the pokemon to have different names
 
-Setup:
+# Setup
 Change the four below variables to match your own draft document
 On your document, click "Extensions -> Apps Script"
 Paste this function into the app script (replacing the default if present)
